@@ -1,0 +1,30 @@
+# Dependencies
+node_modules/
+
+# Build output  
+output/
+bin/
+obj/
+
+# Fable
+.fable/
+
+# IDE
+.idea/
+.vs/
+.vscode/
+*.user
+*.suo
+*.swp
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+npm-debug.log*
+
+# Environment
+.env
+.env.local

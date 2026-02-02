@@ -1,0 +1,15 @@
+{
+  "name": "claude-agent-fsharp",
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "setup": "dotnet tool restore && dotnet restore src && dotnet femto src --resolve",
+    "build": "dotnet fable src --outDir output",
+    "start": "eval $(jq -r '.env | to_entries | .[] | \"export \\(.key)=\\\"\\(.value)\\\"\"' ~/.claude/settings.json) && node output/Program.js",
+    "start:plain": "node output/Program.js",
+    "dev": "dotnet fable watch src --outDir output --run node output/Program.js"
+  },
+  "dependencies": {
+    "@anthropic-ai/claude-agent-sdk": "latest"
+  }
+}

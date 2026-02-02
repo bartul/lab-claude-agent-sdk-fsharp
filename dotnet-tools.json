@@ -1,0 +1,27 @@
+{
+  "version": 1,
+  "isRoot": true,
+  "tools": {
+    "fable": {
+      "version": "4.28.0",
+      "commands": [
+        "fable"
+      ],
+      "rollForward": false
+    },
+    "femto": {
+      "version": "0.21.0",
+      "commands": [
+        "femto"
+      ],
+      "rollForward": false
+    },
+    "fantomas": {
+      "version": "7.0.5",
+      "commands": [
+        "fantomas"
+      ],
+      "rollForward": false
+    }
+  }
+}
