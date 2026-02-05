@@ -10,6 +10,6 @@
     "dev": "dotnet fable watch src --outDir output --run node output/Program.js"
   },
   "dependencies": {
-    "@anthropic-ai/claude-agent-sdk": "latest"
+    "@anthropic-ai/claude-agent-sdk": "^0.2.31"
   }
 }

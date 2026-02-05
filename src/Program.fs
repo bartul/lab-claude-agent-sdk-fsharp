@@ -21,16 +21,20 @@ let main () =
         printfn "Starting Claude Agent query..."
         printfn "Using Claude path: %s" claudePath
 
-        let! messages = runQuery claudePath "What is 2 + 2? Reply briefly."
+        let! messages = runQuery claudePath "Check the Bindings.fs file and validate if encapsulates the latest version of Claude Agent TypeScript SDK"
 
         for msg in messages do
-            printfn "Message type: %s" msg.``type``
-            // Check if it's a result message
-            if msg.``type`` = "result" then
-                let resultMsg: SDKResultMessage = !!msg
-                printfn "Agent: %s" resultMsg.result
-
-        printfn "Done."
+            match classifyMessage msg with
+            | SystemKind sysMsg ->
+                printfn "System message with model %s" sysMsg.model
+            | UserKind userMsg ->
+                printfn "User message received (session: %s)" userMsg.session_id
+            | AssistantKind assistantMsg ->
+                printfn "Assistant message received (uuid: %s)" assistantMsg.uuid
+            | ResultKind resultMsg ->
+                printfn "Agent done: %s" resultMsg.result
+            | _ ->
+                printfn "Other message: %A" msg
     }
     |> ignore
 
