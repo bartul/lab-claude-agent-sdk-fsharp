@@ -31,9 +31,9 @@ let main () =
                 | SystemKind sysMsg ->
                     printfn "System message with model %s" sysMsg.model
                 | UserKind userMsg ->
-                    printfn "User message received (session: %s)" userMsg.session_id
+                    printfn "User message received : %A)" userMsg.message
                 | AssistantKind assistantMsg ->
-                    printfn "Assistant message received (uuid: %s)" assistantMsg.uuid
+                    printfn "Assistant message received : %A)" assistantMsg.message.content |> Array.iter (fun -> printf "%A") 
                 | ResultKind resultMsg ->
                     printfn "Agent done: %s" resultMsg.result
                 | _ ->
